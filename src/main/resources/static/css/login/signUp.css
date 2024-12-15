@@ -1,0 +1,100 @@
+/* 기본 스타일 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    margin: 0;
+    padding: 0;
+}
+
+/* 회원가입 폼 스타일 */
+.signUpForm {
+    width: 100%;
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #B0E0E6;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* 각 입력 필드 및 레이블 스타일 */
+label {
+    font-size: 14px;
+    color: #666;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* 입력 필드 스타일 */
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+/* 버튼을 입력 필드 옆에 배치 */
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-wrapper input[type="text"], .input-wrapper input[type="email"], .input-wrapper input[type="password"] {
+    flex-grow: 1; /* 버튼이 포함된 공간을 제외한 나머지 공간을 채우도록 설정 */
+    padding: 12px;
+    margin-right: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    box-sizing: border-box;
+}
+
+/* 버튼 스타일 */
+.input-wrapper button {
+    width: 70px; /* 버튼 너비 설정 */
+    padding: 12px;
+    background-color: #B0E0E6;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-bottom: 15px;
+}
+
+.input-wrapper button:hover {
+    background-color: #a0c2d5;
+}
+
+/* 제출 버튼 스타일 */
+button[type="submit"] {
+	margin-top: 20px;
+    width: 100%;
+    padding: 12px;
+    background-color: #B0E0E6;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #a0c2d5;
+}
