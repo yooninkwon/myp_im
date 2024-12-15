@@ -1,0 +1,72 @@
+.headerMain{
+	width:100%; /* 너비 90% */
+}
+.headerMain a{
+	margin-left:10px;
+}
+.headerMenu{
+	height: 60px;
+	background-color: #B0E0E6;
+    display: flex; /* 메뉴 항목들을 가로로 배치 */
+    align-items: center; /* 메뉴 항목들을 세로로 중앙 정렬 */
+}
+.headerMenu a{
+	color: white;
+	margin-left: 30px;
+	font-size: 20px;
+    text-decoration: none; /* 밑줄 없애기 */
+}
+.headerMenu a:hover{
+	font-weight: bold; /* hover 시 텍스트 굵게 만들기 */
+	font-size:22px;
+}
+/* 로그인 박스 */
+.loginBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 250px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px; /* 메뉴바 아래로 간격을 설정 */
+    position: absolute;
+    right: 10px; /* 오른쪽에 배치 */
+    box-sizing: border-box;
+}
+
+/* 로그인 박스 입력 필드 */
+.loginBox input {
+	box-sizing: border-box;  /* 테두리와 패딩을 포함하여 너비를 계산 */
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+/* 로그인 버튼 */
+.loginBox button {
+    width: 100%;
+    padding: 8px;
+    background-color: #B0E0E6;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.signUpBox{
+    text-align: center; /* 내용이 가운데 정렬됩니다 */
+}
+.signUp{
+	font-size: 10px;
+    text-decoration: none; /* 밑줄 없애기 */
+    color : black;
+}
+.divider {
+    margin: 0 10px; /* 양옆 여백 */
+    font-size: 14px; /* 구분선 크기 조정 */
+    color: #888; /* 구분선 색상 */
+}
