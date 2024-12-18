@@ -16,10 +16,11 @@
         <h2>회원가입</h2>
         <form action="/signUpOk" method="post">
             <!-- 아이디 -->
-                <label for="username">아이디</label>
+            <label for="username">아이디</label>
             <div class="input-wrapper">
                 <input type="text" id="username" name="username" placeholder="아이디" required pattern="^[a-zA-Z0-9]+$" title="아이디는 영어 대소문자와 숫자만 가능합니다.">
                 <button type="button" id="checkUsername">확인</button>
+                <div id="id"></div>
             </div>
 
             <!-- 비밀번호 -->
