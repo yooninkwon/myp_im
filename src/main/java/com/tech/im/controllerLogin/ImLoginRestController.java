@@ -1,6 +1,7 @@
 package com.tech.im.controllerLogin;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -30,5 +31,12 @@ public class ImLoginRestController {
 	@GetMapping("/signUp/checkEmail")
 	public boolean checkEmail(@RequestParam String userEmail) {
 		return imSignUpCheckService.checkEmail(userEmail);
+	}
+	
+	//회원가입 인증번호 확인 ajax
+	@PostMapping("/signUp/checkNumber")
+	public String checkNumber(@RequestParam String eMail,
+			@RequestParam String userNumber) {
+		return imSignUpCheckService.checkNumber(eMail,userNumber);
 	}
 }

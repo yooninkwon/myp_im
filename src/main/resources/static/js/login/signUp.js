@@ -1,6 +1,6 @@
 $(document).ready(function(){
 	
-	let id,passWord,nickName,eMail = '';
+	let id,passWord,nickName,eMail,number = '';
 	
 	
 	/*아이디 중복체크 확인*/
@@ -104,8 +104,41 @@ $(document).ready(function(){
 				console.error('에러 발생:', error); // 에러 처리
 			}
 		})
-		
 	});
-	
+
+	$('#checkEmailVerification').click(function(){
+		if(eMail!==''){
+		let userNumber = $('#emailVerification').val();
+		
+		if(userNumber === ''){
+			alert("인증번호를 입력하세요.");
+	        return;
+		}
+		
+		$.ajax({
+			url : '/signUp/checkNumber',
+			method : 'POST',
+			data : {
+				eMail,userNumber
+			},
+			success : function(data){
+				if(data === 'no'){
+					alert("인증번호 입력 시간이 지났습니다. 다시 인증번호를 받아주세요.");
+				}else if(data === 'good'){
+					alert("인증이 완료되었습니다.");
+					number = 'good';
+				}else {
+					alert("인증번호를 확인 후 다시 입력해주세요.");
+				}
+					
+				
+			},error: function(xhr, status, error){
+				console.error('에러 발생:', error); // 에러 처리
+			}
+		})
+		}else if(emeMail===''){
+			alert("먼저 이메일을 입력 후 인증번호를 받아주세요.")
+		}
+	});	
 	
 });
