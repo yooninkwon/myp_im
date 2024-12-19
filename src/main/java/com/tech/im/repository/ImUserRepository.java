@@ -8,4 +8,8 @@ public interface ImUserRepository extends JpaRepository<ImUser, String>{
 
 	boolean existsByUserId(String userId);
 
+	boolean existsByUserNickname(String userNickName);
+
+	boolean existsByUserEmail(String userEmail);
+
 }
