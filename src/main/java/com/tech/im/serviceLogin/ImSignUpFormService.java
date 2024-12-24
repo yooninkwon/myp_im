@@ -17,13 +17,13 @@ public class ImSignUpFormService {
 
 	private final ImUserRepository imUserRepository;
 	
+	//회원가입
 	public void signUp(String id, String passWord, String nickName, String eMail) {
 		//비밀번호, 이메일 단방향 암호화
 		String encodePassword = Encoder.encode(passWord);
-		String encodeEmail= Encoder.encode(eMail);
 		
 		//유저정보 객체주입 _ 멤버코드는 UUID사용
-		ImUser user = ImUser.createUser(UUID.randomUUID().toString(), id, encodePassword, nickName, encodeEmail);
+		ImUser user = ImUser.createUser(UUID.randomUUID().toString(), id, encodePassword, nickName, eMail);
 		
 		//db에 insert
 		imUserRepository.save(user);

@@ -24,11 +24,15 @@ public class ImSignUpEmailService {
 	//이메일 발송
 	@Async
 	public void sendEmail(String userEmail) {
-		
+		//이메일 보낼 설정
 		SimpleMailMessage message = new SimpleMailMessage();
+		//to 누구에게 보낼지 _ 이메일주소
 		message.setTo(userEmail);
+		//이메일 제목
 		message.setSubject("Im 회원가입 인증번호");
+		//이메일 내용 _ 인증번호 생서 메소드 리턴값
 		message.setText("인증번호 : "+verification(userEmail));
+		//이메일 보내기
 		javaMailSender.send(message);
 		
 	}

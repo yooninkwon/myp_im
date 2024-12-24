@@ -61,4 +61,9 @@ public class ImUser {
 		return user;
 	}
 	
+	//비밀번호 재설정
+	public void changePassword(String changePassword) {
+		this.userPassword = changePassword;
+	}
+	
 }
