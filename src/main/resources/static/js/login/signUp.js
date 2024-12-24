@@ -92,7 +92,7 @@ $(document).ready(function(){
 		
 		$.ajax({
 			url : '/signUp/checkEmail',
-			method : 'GET',
+			method : 'POST',
 			data : {
 				userEmail
 			},
