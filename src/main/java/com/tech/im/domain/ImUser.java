@@ -13,12 +13,11 @@ import lombok.Setter;
 @Entity
 @Table(name = "im_user")
 @Getter
-@Setter
 public class ImUser {
 	
 	// 유저 고유 코드번호
 	@Id
-	@Column(name = "user_code", length = 50)
+	@Column(name = "user_code", length = 250)
 	private String userCode;
 	
 	// 유저 아이디
@@ -48,4 +47,18 @@ public class ImUser {
 	// 유저 아이디 생성날짜
 	@Column(name = "user_created_at")
 	private LocalDateTime userCreatedAt;
+	
+	//유저 회원가입
+	public static ImUser createUser(String userCode, String id, String passWord, String nickName, String eMail) {
+		ImUser user = new ImUser();
+		user.userCode = userCode;
+		user.userId = id;
+		user.userPassword = passWord;
+		user.userNickname = nickName;
+		user.userEmail = eMail;
+		user.userRole = "USER";
+		user.userStatus = "ACTIVE";
+		return user;
+	}
+	
 }

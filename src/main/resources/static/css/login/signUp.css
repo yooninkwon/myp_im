@@ -83,7 +83,7 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 /* 제출 버튼 스타일 */
-button[type="submit"] {
+#signUp {
 	margin-top: 20px;
     width: 100%;
     padding: 12px;
@@ -95,6 +95,6 @@ button[type="submit"] {
     cursor: pointer;
 }
 
-button[type="submit"]:hover {
+#signUp:hover {
     background-color: #a0c2d5;
 }

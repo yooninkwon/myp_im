@@ -1,6 +1,10 @@
 $(document).ready(function(){
 	
-	let id,passWord,nickName,eMail,number = '';
+	let id = '';
+	let passWord = '';
+	let nickName = '';
+	let eMail = '';
+	let number = '';
 	
 	
 	/*아이디 중복체크 확인*/
@@ -77,7 +81,7 @@ $(document).ready(function(){
 		let userEmail = $('#email').val();
 		
 		if(userEmail === ''){
-			alert("닉네임을 입력하세요.");
+			alert("이메일을 입력하세요.");
 	        return;
 		}
 		let validPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
@@ -124,11 +128,13 @@ $(document).ready(function(){
 			success : function(data){
 				if(data === 'no'){
 					alert("인증번호 입력 시간이 지났습니다. 다시 인증번호를 받아주세요.");
+					number = 'ng';
 				}else if(data === 'good'){
 					alert("인증이 완료되었습니다.");
 					number = 'good';
 				}else {
 					alert("인증번호를 확인 후 다시 입력해주세요.");
+					number = 'ng';
 				}
 					
 				
@@ -136,9 +142,35 @@ $(document).ready(function(){
 				console.error('에러 발생:', error); // 에러 처리
 			}
 		})
-		}else if(emeMail===''){
+		}else if(eMail===''){
 			alert("먼저 이메일을 입력 후 인증번호를 받아주세요.")
 		}
 	});	
+	
+	/*회원가입 확인 버튼*/
+	$('#signUp').click(function(){
+		passWord = $('#password').val();
+		console.log(id, passWord, nickName , eMail , number);
+		
+		if(id==='' || passWord==='' || nickName==='' || eMail==='' || (number === 'ng' || number === '')){
+			alert('중복확인 및 인증번호를 확인해주세요.');
+			return;
+		}
+			
+		$.ajax({
+			url : '/signUp/form',
+			method : 'POST',
+			data : {
+				id,passWord,nickName,eMail
+			},success : function(data){
+				alert('회원가입 완료!')
+				window.location.href = data;
+			},error: function(xhr, status, error){
+				console.error('에러 발생:', error); // 에러 처리
+			}
+		});
+			
+	
+	});
 	
 });

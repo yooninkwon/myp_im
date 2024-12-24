@@ -12,4 +12,5 @@ public interface ImUserRepository extends JpaRepository<ImUser, String>{
 
 	boolean existsByUserEmail(String userEmail);
 
+	
 }

@@ -14,7 +14,7 @@
 <body>
     <div class="signUpForm">
         <h2>회원가입</h2>
-        <form action="/signUpOk" method="post">
+        
             <!-- 아이디 -->
             <label for="username">아이디</label>
             <div class="input-wrapper">
@@ -50,8 +50,7 @@
             <button type="button" id="checkEmailVerification">확인</button>
 			</div>
             <!-- 제출 버튼 -->
-            <button type="submit">회원가입</button>
-        </form>
+            <button type="button" id="signUp">회원가입</button>
     </div>
 </body>
 </html>
