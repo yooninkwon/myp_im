@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tech.im.serviceLogin.ImSignUpCheckService;
+import com.tech.im.serviceLogin.ImSignUpFormService;
 
 import lombok.RequiredArgsConstructor;
 
@@ -14,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 public class ImLoginRestController {
 	
 	private final ImSignUpCheckService imSignUpCheckService;
+	private final ImSignUpFormService imSignUpFormService;
 	
 	//회원가입 아이디 중복확인 ajax
 	@GetMapping("/signUp/checkId")
@@ -38,5 +40,15 @@ public class ImLoginRestController {
 	public String checkNumber(@RequestParam String eMail,
 			@RequestParam String userNumber) {
 		return imSignUpCheckService.checkNumber(eMail,userNumber);
+	}
+	
+	//회원가입 
+	@PostMapping("/signUp/form")
+	public String signUpForm(@RequestParam String id, @RequestParam String passWord,
+			@RequestParam String nickName, @RequestParam String eMail) {
+		
+			imSignUpFormService.signUp(id,passWord, nickName, eMail);
+		
+		return "/";
 	}
 }

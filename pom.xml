@@ -101,6 +101,12 @@
 	        <artifactId>spring-boot-starter-data-redis</artifactId>
 	    </dependency>
 		
+		<!--비밀번호 보안-->
+	    <dependency>
+	        <groupId>org.springframework.boot</groupId>
+	        <artifactId>spring-boot-starter-security</artifactId>
+	    </dependency>
+			
 	</dependencies>
 
 	<build>
