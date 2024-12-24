@@ -12,7 +12,8 @@
 >회원가입 시 정보 중복확인 기능 / JPA 
 >google 이메일 연동 및 인증번호 확인 기능     
 >인증번호 일치 여부 확인 기능 / redis 사용     
->회원가입 기능완료 (비밀번호 암호화) / Spring Security, Jpa
+>회원가입 기능완료 (비밀번호 암호화) / Spring Security, Jpa     
+>아이디/비밀번호 찾기 기능 / JPA
 
 
 
