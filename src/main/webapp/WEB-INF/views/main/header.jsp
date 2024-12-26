@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,17 +25,33 @@
 		<a href="/secret">말 못할 비밀</a>
 		<a href="/free">왁자지껄</a>
 	</div>
-    <div class="loginBox">
-        <form action="/login" method="post">
-            <input type="text" name="username" placeholder="아이디">
-            <input type="password" name="password" placeholder="비밀번호">
-            <button type="submit">로그인</button>
-            <div class="signUpBox">
-            	<a class="signUp" href="/login/signUp">회원가입</a>
-            	<span class="divider">|</span>
-            	<a class="signUp" href="/login/findId">아이디/비밀번호 찾기</a>
-            </div>
-        </form>
-	</div>
+	<!-- 세션에 유저코드가 없으면 로그인 폼 -->
+	<c:if test="${empty sessionScope.userCode }">
+	    <div class="loginBox">
+	        <form action="/login" method="post" id="loginForm">
+	            <input type="text" name="username" id="username" placeholder="아이디">
+	            <input type="password" name="password" id="password" placeholder="비밀번호">
+	            <button type="submit">로그인</button>
+	            <div class="signUpBox">
+	            	<a class="signUp" href="/login/signUp">회원가입</a>
+	            	<span class="divider">|</span>
+	            	<a class="signUp" href="/login/findId">아이디/비밀번호 찾기</a>
+	            </div>
+	        </form>
+		</div>
+	</c:if>
+	<!-- 세션에 유저코드가 있으면 유저정보 및 기능 -->
+    <c:if test="${not empty sessionScope.userCode}"> <!-- 세션에 userCode가 있으면 사용자 메뉴 출력 -->
+        <div class="userBox">
+            <p>${sessionScope.userNickname}</p>
+            <ul>
+                <li><a href="/writePost">글 쓰러가기</a></li>
+                <li><a href="/myPosts">내가 쓴 글 보기</a></li>
+                <div class="signUpBox">
+	                <a class="signUp" href="/logout">로그아웃</a>
+                </div>
+            </ul>
+        </div>
+    </c:if>
 </body>
 </html>
