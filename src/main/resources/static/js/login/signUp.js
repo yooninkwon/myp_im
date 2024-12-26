@@ -22,6 +22,12 @@ $(document).ready(function(){
 		    return;
 		}
 		
+		// 아이디 길이 제한 (5자 이상 15자 이하)
+		if(userId.length < 5 || userId.length > 50) {
+		    alert("아이디는 5자 이상 50자 이하로 입력해야 합니다.");
+		    return;
+		}
+		
 		$.ajax({
 			url : '/signUp/checkId',
 			method : 'GET',
@@ -55,6 +61,11 @@ $(document).ready(function(){
 		if(!validPattern.test(userNickName)) {
 			alert("닉네임은 한글, 영어 대소문자, 숫자만 가능합니다.");
 			return;
+		}
+		
+		if(userNickName.length > 20) {
+		    alert("닉네임은 20자 이하로 입력해야 합니다.");
+		    return;
 		}
 		
 		$.ajax({
