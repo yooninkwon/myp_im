@@ -23,7 +23,8 @@ public class ImSignUpFormService {
 		String encodePassword = Encoder.encode(passWord);
 		
 		//유저정보 객체주입 _ 멤버코드는 UUID사용
-		ImUser user = ImUser.createUser(UUID.randomUUID().toString(), id, encodePassword, nickName, eMail);
+		ImUser user = new ImUser(); 
+		user.createUser(UUID.randomUUID().toString(), id, encodePassword, nickName, eMail);
 		
 		//db에 insert
 		imUserRepository.save(user);

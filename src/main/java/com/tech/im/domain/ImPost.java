@@ -33,19 +33,17 @@ public class ImPost {
 	@Column(name = "post_created_at", updatable = false)
 	private LocalDateTime postCreatedAt;
 	
-	@Column(name = "post_userCode")
+	@Column(name = "post_usercode")
 	private String postUserCode;
 	
 	//게시글 작성
-	public static ImPost createPost(String postCategory, String postTitle, 
+	public void writePost(String postCategory, String postTitle, 
 			String postContent, String postUserCode) {
-		ImPost imPost = new ImPost();
-		imPost.postCategory = postCategory;
-		imPost.postTitle = postTitle;
-		imPost.postContent = postContent;
-		imPost.postUserCode = postUserCode;
 		
-		return imPost;
+		this.postCategory = postCategory;
+		this.postTitle = postTitle;
+		this.postContent = postContent;
+		this.postUserCode = postUserCode;
 	}
 	
 	

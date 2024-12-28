@@ -7,9 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tech.im.servicePost.ImWritePostService;
+
+import lombok.RequiredArgsConstructor;
+
 @Controller
+@RequiredArgsConstructor
 public class ImPostController {
 
+	private final ImWritePostService imWritePostService;
+	
 	//글 작성 페이지로 가기
 	@GetMapping("/writePost")
 	public String writePost() {
@@ -27,10 +34,7 @@ public class ImPostController {
 	public String writePostSave(HttpSession session,
 			@RequestParam String category, @RequestParam String title,
 			@RequestParam String content){
-		
-		System.out.println(category+" "+title+" "+content);
-		
-		return "post/myPost";
+		return imWritePostService.writePostSave(session, category, title, content);
 	}
 	
 }
