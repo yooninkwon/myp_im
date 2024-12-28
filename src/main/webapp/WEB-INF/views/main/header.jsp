@@ -46,10 +46,8 @@
             <p>${sessionScope.userNickname}</p>
             <ul>
                 <li><a href="/writePost">글 쓰러가기</a></li>
-                <li><a href="/myPosts">내가 쓴 글 보기</a></li>
-                <div class="signUpBox">
-	                <a class="signUp" href="/logout">로그아웃</a>
-                </div>
+                <li><a href="/myPost">내가 쓴 글 보기</a></li>
+            	<li><a class="logOut" href="/logout">로그아웃</a></li>
             </ul>
         </div>
     </c:if>

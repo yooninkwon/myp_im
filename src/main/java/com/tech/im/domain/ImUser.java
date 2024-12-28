@@ -8,7 +8,6 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.Getter;
-import lombok.Setter;
 
 @Entity
 @Table(name = "im_user")
@@ -49,16 +48,15 @@ public class ImUser {
 	private LocalDateTime userCreatedAt;
 	
 	//유저 회원가입
-	public static ImUser createUser(String userCode, String id, String passWord, String nickName, String eMail) {
-		ImUser user = new ImUser();
-		user.userCode = userCode;
-		user.userId = id;
-		user.userPassword = passWord;
-		user.userNickname = nickName;
-		user.userEmail = eMail;
-		user.userRole = "USER";
-		user.userStatus = "ACTIVE";
-		return user;
+	public void createUser(String userCode, String id, String passWord, String nickName, String eMail) {
+		this.userCode = userCode;
+		this.userId = id;
+		this.userPassword = passWord;
+		this.userNickname = nickName;
+		this.userEmail = eMail;
+		this.userRole = "USER";
+		this.userStatus = "ACTIVE";
+		
 	}
 	
 	//비밀번호 재설정
