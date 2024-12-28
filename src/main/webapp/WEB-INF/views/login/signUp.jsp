@@ -30,14 +30,15 @@
 			</div>
 			
             <!-- 닉네임 -->
-                <label for="nickname">닉네임</label>
+            <label for="nickname">닉네임</label>
             <div class="input-wrapper">
                 <input type="text" id="nickname" name="nickname" placeholder="닉네임" required pattern="^[a-zA-Z0-9가-힣]+$" title="닉네임은 한글, 영어 대소문자, 숫자만 가능합니다.">
                 <button type="button" id="checkNickname">확인</button>
             </div>
 
             <!-- 이메일 -->
-                <label for="email">이메일</label>
+           
+            <label for="email">이메일</label>
             <div class="input-wrapper">
                 <input type="email" id="email" name="email" placeholder="이메일" required>
                 <button type="button" id="sendEmailVerification">인증</button>

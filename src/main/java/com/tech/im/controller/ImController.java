@@ -1,55 +1,55 @@
 package com.tech.im.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ImController {
 	
 	//메인페이지
-	@RequestMapping("/")
+	@GetMapping("/")
 	public String index() {
 		
 		return "index";
 	}
 	
 	//누구야 페이지
-	@RequestMapping("/who")
+	@GetMapping("/who")
 	public String who() {
 		
 		return "who";
 	}
 	
 	//이렇게 살아왔어 페이지
-	@RequestMapping("/life")
+	@GetMapping("/life")
 	public String life() {
 		
 		return "life";
 	}
 	
 	//고민이 있어 페이지
-	@RequestMapping("/worry")
+	@GetMapping("/worry")
 	public String worry() {
 		
 		return "worry";
 	}
 	
 	//말 못할 비밀 페이지
-	@RequestMapping("/secret")
+	@GetMapping("/secret")
 	public String secret() {
 		
 		return "secret";
 	}
 	
 	//왁자지껄 _ 자유게시판 페이지
-	@RequestMapping("/free")
+	@GetMapping("/free")
 	public String free() {
 		
 		return "free";
 	}
 	
 	//마이페이지(내가 쓴글 보기)
-	@RequestMapping("/myPage")
+	@GetMapping("/myPage")
 	public String myPage() {
 		
 		return "myPage";
