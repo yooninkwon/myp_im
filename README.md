@@ -14,7 +14,10 @@
 >인증번호 일치 여부 확인 기능 / redis 사용     
 >회원가입 기능완료 (비밀번호 암호화) / Spring Security, Jpa     
 >아이디,비밀번호 찾기 기능 / JPA    
->로그인, 로그아웃 기능 / http session
+>로그인, 로그아웃 기능 / http session   
+   
+[게시글]  
+>게시글 작성 기능 / JPA, CKeditor
 
 
 
