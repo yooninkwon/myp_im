@@ -17,6 +17,6 @@ public interface ImUserRepository extends JpaRepository<ImUser, String>{
 	//아이디/비밀번호 찾기 시 이메일 인증완료가되면 해당 이메일을 포함한 유저 데이터 가져오기
 	Optional<ImUser> findByUserEmail(String userEmail);
 	//비밀번호 재설정하기 위한 유저 데이터 가져오기
-	ImUser findByUserId(String id);
+	Optional<ImUser> findByUserId(String id);
 	
 }

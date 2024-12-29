@@ -1,6 +1,7 @@
 package com.tech.im.serviceLogin;
 
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,7 @@ public class ImFindIdCheckService {
 			return false;
 		}else {
 			imSignUpEmailService.sendEmail(userEmail);
+			stringRedisTemplate.opsForValue().set("checkEmail", userEmail, 10, TimeUnit.MINUTES);
 			return true;
 		}
 	
@@ -54,11 +56,16 @@ public class ImFindIdCheckService {
 	public void changePassword(String id, String newPassword) {
 		String encodeNewPassword = Encoder.encode(newPassword);
 		
-		ImUser updateUser = imUserRepository.findByUserId(id);
+		Optional<ImUser> updateUser = imUserRepository.findByUserId(id);
 		
-		updateUser.changePassword(encodeNewPassword);
+		if(updateUser.isEmpty() ||  
+				!updateUser.get().getUserEmail().equals((String) stringRedisTemplate.opsForValue().get("checkEmail"))) {
+			return;
+		}
 		
-		imUserRepository.save(updateUser);
+		updateUser.get().changePassword(encodeNewPassword);
+		
+		imUserRepository.save(updateUser.get());
 		
 		
 	}
