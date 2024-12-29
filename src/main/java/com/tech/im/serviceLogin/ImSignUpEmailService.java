@@ -47,10 +47,10 @@ public class ImSignUpEmailService {
 			pass+=passSet.charAt(randomIndex);
 		}
 		 // 레디스에 현재 이메일로 저장된 값이 있으면 삭제 _ 인증버튼 중복으로 누를때를 예방하기위함
-        stringRedisTemplate.delete(userEmail);// 기존 인증번호 삭제
+        stringRedisTemplate.delete("check"+userEmail);// 기존 인증번호 삭제
 
         // 레디스에 현재 이메일 키값으로 인증번호 저장 _ 타임은 1분
-	    stringRedisTemplate.opsForValue().set(userEmail, pass, 1, TimeUnit.MINUTES);
+	    stringRedisTemplate.opsForValue().set("check"+userEmail, pass, 1, TimeUnit.MINUTES);
 		
 		
 		return pass;

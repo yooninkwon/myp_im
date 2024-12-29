@@ -154,7 +154,7 @@ $(document).ready(function(){
 			}
 		})
 		}else if(eMail===''){
-			alert("먼저 이메일을 입력 후 인증번호를 받아주세요.")
+			alert("먼저 이메일을 입력 후 인증번호를 받아주세요.");
 		}
 	});	
 	
@@ -174,8 +174,14 @@ $(document).ready(function(){
 			data : {
 				id,passWord,nickName,eMail
 			},success : function(data){
+				if(data==='/login/signUp'){
+					alert('회원가입을 다시 시도해주세요.');
+					window.location.href = data;
+				}else{
 				alert('회원가입 완료!')
 				window.location.href = data;
+				}
+				
 			},error: function(xhr, status, error){
 				console.error('에러 발생:', error); // 에러 처리
 			}
