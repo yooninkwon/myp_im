@@ -20,7 +20,9 @@
    
 [게시글]  
 + 게시글 작성 기능 / JPA, CKeditor
-
+     
+[예외처리]    
++ 비로그인 시 진입 불가한 페이지 설정 / HandlerInterceptor
 
 
 
