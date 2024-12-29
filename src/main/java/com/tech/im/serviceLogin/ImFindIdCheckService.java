@@ -26,7 +26,8 @@ public class ImFindIdCheckService {
 			return false;
 		}else {
 			imSignUpEmailService.sendEmail(userEmail);
-			stringRedisTemplate.opsForValue().set("checkEmail", userEmail, 10, TimeUnit.MINUTES);
+			//이메일 검증 완료 후 비밀번호 재설정 시 서버에서 받은 아이디의 등록된 이메일인지 확인하기 위함 
+			stringRedisTemplate.opsForValue().set("findId"+userEmail, userEmail, 10, TimeUnit.MINUTES);
 			return true;
 		}
 	
@@ -58,8 +59,10 @@ public class ImFindIdCheckService {
 		
 		Optional<ImUser> updateUser = imUserRepository.findByUserId(id);
 		
+		//관리자도구를 통해 아이디값을 바꾸면 null이 되니 리턴
+		//이메일 인증까지는 ok지만 아이디를 바꿔 데이터를 보냈을 때, 그 아이디와 이전에 인증받은 이메일의 일치여부 검증 
 		if(updateUser.isEmpty() ||  
-				!updateUser.get().getUserEmail().equals((String) stringRedisTemplate.opsForValue().get("checkEmail"))) {
+				!updateUser.get().getUserEmail().equals((String) stringRedisTemplate.opsForValue().get("findId"+updateUser.get().getUserEmail()))) {
 			return;
 		}
 		
@@ -67,6 +70,8 @@ public class ImFindIdCheckService {
 		
 		imUserRepository.save(updateUser.get());
 		
+		//정상적으로 비밀번호 변경 완료시 이전에 redis에 저장한 데이터는 삭제
+		stringRedisTemplate.delete("findId" + updateUser.get().getUserEmail());
 		
 	}
 	

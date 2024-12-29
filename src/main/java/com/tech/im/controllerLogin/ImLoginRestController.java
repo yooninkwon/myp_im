@@ -48,10 +48,7 @@ public class ImLoginRestController {
 	@PostMapping("/signUp/form")
 	public String signUpForm(@RequestParam String id, @RequestParam String passWord,
 			@RequestParam String nickName, @RequestParam String eMail) {
-		
-			imSignUpFormService.signUp(id,passWord, nickName, eMail);
-		
-		return "/";
+		return imSignUpFormService.signUp(id,passWord, nickName, eMail);
 	}
 	
 	//아이디/비밀번호 찾기 이메일 확인 + 인증번호 보내기
