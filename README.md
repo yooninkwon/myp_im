@@ -29,7 +29,8 @@
 + 로그인, 로그아웃 기능 / http session   
    
 [게시글]  
-+ 게시글 작성 기능 / JPA, CKeditor
++ 게시글 작성 기능 / MyBatis, CKeditor
++ 내가 작성한 게시글 보기 기능 / MyBatis    
      
 [인증처리]    
 + 비로그인 시 진입 불가한 페이지 설정 / HandlerInterceptor
