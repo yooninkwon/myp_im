@@ -37,7 +37,7 @@ public class ImSignUpEmailService {
 		
 	}
 
-	//인증번호 만들기 + 레디스에 1분유효로 값 저장
+	//인증번호 만들기 + Redis 5분 유효로 값 저장
 	public String verification(String userEmail) {
 		String passSet = "ABCDEFGHIJKLMNOPQRSUVWXYZ0123456789";
 		Random random = new Random();
@@ -50,7 +50,7 @@ public class ImSignUpEmailService {
         stringRedisTemplate.delete("check"+userEmail);// 기존 인증번호 삭제
 
         // 레디스에 현재 이메일 키값으로 인증번호 저장 _ 타임은 1분
-	    stringRedisTemplate.opsForValue().set("check"+userEmail, pass, 1, TimeUnit.MINUTES);
+	    stringRedisTemplate.opsForValue().set("check"+userEmail, pass, 5, TimeUnit.MINUTES);
 		
 		
 		return pass;
