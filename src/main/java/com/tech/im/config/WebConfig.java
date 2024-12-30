@@ -9,7 +9,7 @@ import com.tech.im.interceptor.LoginCheckInterceptor;
 @Configuration
 public class WebConfig implements WebMvcConfigurer{
 
-	//handlerinterceptor 설정한 기능을 글 쓰기, 내가 쓴 글 보기 페이지 접속 시에만 적용
+	//LoginCheckInterceptor에서 설정한 기능을 글 쓰기, 내가 쓴 글 보기 페이지 접속 시에만 적용
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(new LoginCheckInterceptor())

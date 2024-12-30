@@ -4,8 +4,7 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Service;
 
-import com.tech.im.domain.ImPost;
-import com.tech.im.repository.ImPostRepository;
+import com.tech.im.mapper.ImPostMapper;
 
 import lombok.RequiredArgsConstructor;
 
@@ -13,7 +12,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ImWritePostService {
 
-	private final ImPostRepository imPostRepository;
+	private final ImPostMapper imPostMapper;
 	
 	public String writePostSave(HttpSession session, String category, String title, String content) {
 		//만약 제목 길이가 100 초과면 리턴
@@ -21,20 +20,21 @@ public class ImWritePostService {
 			return "redirect:/writePost";
 		}
 		//만약 카테고리가 이상한 카테고리면 리턴
-		if(!category.equals("who") && !category.equals("life") && !category.equals("worry") && 
-				!category.equals("secret") && !category.equals("free")) {
+		if(!category.equals("누구야") && !category.equals("이렇게 살아왔어") && !category.equals("고민이 있어") && 
+				!category.equals("숨겨둔 비밀") && !category.equals("자유게시판")) {
+			return "redirect:/writePost";
+		}
+		//만약 로그인 상태가 아니라면
+		if(session.getAttribute("userCode")==null) {
 			return "redirect:/writePost";
 		}
 		
-		ImPost post = new ImPost(); 
-				
-		post.writePost(category, title, content, (String)session.getAttribute("userCode"));
+		imPostMapper.writePost(category, title, content, (String)session.getAttribute("userCode"));
 		
-		imPostRepository.save(post);
-		
-		return "post/myPost";
+		return "redirect:/myPost";
 		
 	}
+	
 
 	
 	

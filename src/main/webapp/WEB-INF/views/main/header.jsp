@@ -22,8 +22,8 @@
 		<a href="/who">누구야</a>
 		<a href="/life">이렇게 살아왔어</a>
 		<a href="/worry">고민이 있어</a>
-		<a href="/secret">말 못할 비밀</a>
-		<a href="/free">왁자지껄</a>
+		<a href="/secret">숨겨둔 비밀</a>
+		<a href="/free">자유게시판</a>
 	</div>
 	<!-- 세션에 유저코드가 없으면 로그인 폼 -->
 	<c:if test="${empty sessionScope.userCode }">
