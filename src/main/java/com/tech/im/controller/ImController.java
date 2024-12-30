@@ -48,10 +48,5 @@ public class ImController {
 		return "free";
 	}
 	
-	//마이페이지(내가 쓴글 보기)
-	@GetMapping("/myPage")
-	public String myPage() {
-		
-		return "myPage";
-	}
+
 }

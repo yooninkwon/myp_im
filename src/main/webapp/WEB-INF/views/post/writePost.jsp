@@ -17,11 +17,11 @@
 			<div class="form-group">
 				<label for="category">카테고리</label>
 				<select name="category" id="category">
-					<option value="who">누구야</option>
-					<option value="life">이렇게 살아왔어</option>
-					<option value="worry">고민이 있어</option>
-					<option value="secret">말 못할 비밀</option>
-					<option value="free">왁자지껄</option>
+					<option value="누구야">누구야</option>
+					<option value="이렇게 살아왔어">이렇게 살아왔어</option>
+					<option value="고민이 있어">고민이 있어</option>
+					<option value="숨겨둔 비밀">숨겨둔 비밀</option>
+					<option value="자유게시판">자유게시판</option>
 				</select>
 			</div>
 			<div class="form-group">

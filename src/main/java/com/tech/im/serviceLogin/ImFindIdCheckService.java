@@ -36,7 +36,7 @@ public class ImFindIdCheckService {
 	//인증번호 입력시 맞는지 확인
 	public String checkNumber(String eMail, String userNumber) {
 		
-		String pass = (String) stringRedisTemplate.opsForValue().get(eMail);
+		String pass = (String) stringRedisTemplate.opsForValue().get("check"+eMail);
 		
 		
 		if (pass == null) {

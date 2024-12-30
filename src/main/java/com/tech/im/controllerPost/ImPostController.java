@@ -3,10 +3,12 @@ package com.tech.im.controllerPost;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tech.im.servicePost.ImMyPostListService;
 import com.tech.im.servicePost.ImWritePostService;
 
 import lombok.RequiredArgsConstructor;
@@ -16,6 +18,7 @@ import lombok.RequiredArgsConstructor;
 public class ImPostController {
 
 	private final ImWritePostService imWritePostService;
+	private final ImMyPostListService imMyPostListService;
 	
 	//글 작성 페이지로 가기
 	@GetMapping("/writePost")
@@ -25,7 +28,10 @@ public class ImPostController {
 	
 	//내가 쓴 글 보기
 	@GetMapping("/myPost")
-	public String myPost() {
+	public String myPost(HttpSession session, Model model) {
+		
+		imMyPostListService.myPostList(session, model);
+		
 		return "post/myPost";
 	}
 	

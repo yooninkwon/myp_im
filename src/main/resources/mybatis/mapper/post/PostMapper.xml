@@ -1,0 +1,30 @@
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<mapper namespace="com.tech.im.mapper.ImPostMapper">
+
+	<!-- 게시글 작성 insert -->
+	<insert id="writePost">
+		INSERT INTO 
+			IM_POST(POST_CATEGORY, POST_TITLE, POST_CONTENT, POST_USERCODE)
+		VALUES(#{category}, #{title}, #{content}, #{userCode})
+	</insert>
+	
+	<!-- 내가 쓴 글 리스트 불러오기 -->
+	<select id="myPostList"	resultType="com.tech.im.dto.ImPostListDto">
+		SELECT 
+			P.POST_NO, P.POST_CATEGORY, P.POST_TITLE, P.POST_CREATED_AT, U.USER_NICKNAME
+		FROM
+			IM_POST P
+		INNER JOIN 
+			IM_USER U ON P.POST_USERCODE = U.USER_CODE
+		WHERE 
+			P.POST_USERCODE = #{userCode}
+		ORDER BY 
+			P.POST_CREATED_AT DESC
+	</select>
+	
+
+</mapper>
