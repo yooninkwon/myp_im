@@ -68,6 +68,7 @@ public class ImLoginRestController {
 	@PostMapping("/findId/changePassword")
 	public String findIdChangePassword(@RequestParam String id,
 			@RequestParam String newPassword) {
+		
 		imFindIdCheckService.changePassword(id, newPassword);	
 		
 		return "/";

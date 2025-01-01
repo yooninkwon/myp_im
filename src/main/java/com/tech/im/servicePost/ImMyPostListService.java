@@ -23,14 +23,14 @@ public class ImMyPostListService {
 		//로그인 된 유저의 유저코드 
 		String userCode = (String) session.getAttribute("userCode");
 		//페이지당 게시글 수 설정
-		int recordsPerPage = 10;
+		int postPerPage = 10;
 		//전체 게시글 수 가져오기
-		int totalRecords = imPostMapper.countMyPostList(userCode);
+		int totalPost= imPostMapper.countMyPostList(userCode);
 		//페이징 데이터 가져오기
-		ImPostPageVO pagination = new ImPostPageVO(page, totalRecords, recordsPerPage);
+		ImPostPageVO pagination = new ImPostPageVO(page, totalPost, postPerPage);
 		//현재 페이지에 해당하는 게시글 가져오기
-		int offset = (page - 1) * recordsPerPage;
-		List<ImPostListDto> myPostList = imPostMapper.myPostList(userCode, offset, recordsPerPage);
+		int offset = (page - 1) * postPerPage;
+		List<ImPostListDto> myPostList = imPostMapper.myPostList(userCode, offset, postPerPage);
 		//모델에 담아 뷰로 전달
 		model.addAttribute("myPostList", myPostList);
 		model.addAttribute("pagination", pagination);

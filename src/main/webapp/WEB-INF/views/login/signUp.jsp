@@ -4,7 +4,6 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
 <link rel="stylesheet" href="/static/css/login/signUp.css" />
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="/static/js/login/signUp.js"></script>

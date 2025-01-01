@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>I'm</title>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="/static/js/header/header.js"></script>
 <link rel="stylesheet" href="/static/css/header/header.css" />
@@ -19,11 +19,11 @@
 		<a href="/"><img src="/static/img/header/im.png" alt="로고" ></a>
 	</div>
 	<div class="headerMenu">
-		<a href="/who">누구야</a>
-		<a href="/life">이렇게 살아왔어</a>
-		<a href="/worry">고민이 있어</a>
-		<a href="/secret">숨겨둔 비밀</a>
-		<a href="/free">자유게시판</a>
+		<a href="/post?category=who">누구야</a>
+		<a href="/post?category=life">이렇게 살아왔어</a>
+		<a href="/post?category=worry">고민이 있어</a>
+		<a href="/post?category=secret">숨겨둔 비밀</a>
+		<a href="/post?category=free">자유게시판</a>
 	</div>
 	<!-- 세션에 유저코드가 없으면 로그인 폼 -->
 	<c:if test="${empty sessionScope.userCode }">
