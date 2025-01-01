@@ -1,10 +1,19 @@
 package com.tech.im.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import com.tech.im.servicePost.ImCategoryPostListService;
+
+import lombok.RequiredArgsConstructor;
 
 @Controller
+@RequiredArgsConstructor
 public class ImController {
+	
+	private final ImCategoryPostListService imCategoryPostListService;
 	
 	//메인페이지
 	@GetMapping("/")
@@ -13,40 +22,13 @@ public class ImController {
 		return "index";
 	}
 	
-	//누구야 페이지
-	@GetMapping("/who")
-	public String who() {
+	//카테고리별 게시글 리스트 페이지
+	@GetMapping("/post")
+	public String who(Model model, @RequestParam String category, @RequestParam(defaultValue = "1") int page) {
 		
-		return "who";
+		imCategoryPostListService.PostList(model, category, page);
+		
+		return "post";
 	}
 	
-	//이렇게 살아왔어 페이지
-	@GetMapping("/life")
-	public String life() {
-		
-		return "life";
-	}
-	
-	//고민이 있어 페이지
-	@GetMapping("/worry")
-	public String worry() {
-		
-		return "worry";
-	}
-	
-	//말 못할 비밀 페이지
-	@GetMapping("/secret")
-	public String secret() {
-		
-		return "secret";
-	}
-	
-	//왁자지껄 _ 자유게시판 페이지
-	@GetMapping("/free")
-	public String free() {
-		
-		return "free";
-	}
-	
-
 }

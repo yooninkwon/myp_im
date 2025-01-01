@@ -94,7 +94,6 @@ public class ImSignUpCheckService {
 		
 		String pass = (String) stringRedisTemplate.opsForValue().get("check"+eMail);
 		
-		
 		if (pass == null) {
 			return "no";
 		}else if(pass.equals(userNumber)) {

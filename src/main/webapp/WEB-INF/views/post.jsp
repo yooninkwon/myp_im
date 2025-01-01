@@ -11,28 +11,26 @@
 <link rel="stylesheet" href="/static/css/post/myPost.css" />
 </head>
 <body>
-	<jsp:include page="../main/header.jsp"/>
+	<jsp:include page="main/header.jsp"/>
     <!-- 게시글 리스트 테이블 -->
     <div class="post-list">
     	<c:choose>
-	        <c:when test="${not empty myPostList }">
+	        <c:when test="${not empty postList }">
 		        <table>
 		            <thead>
 		                <tr>
-		                    <th>카테고리</th>
+		                    <th>작성일</th>
 		                    <th>제목</th>
 		                    <th>작성자</th>
-		                    <th>작성일</th>
 		                </tr>
 		            </thead>
 		            <tbody>
 		                <!-- myPostList가 null이 아닐 경우에만 출력 -->
-		                <c:forEach var="post" items="${myPostList}">
+		                <c:forEach var="post" items="${postList}">
 		                    <tr class="clickPostList" data-href="/detailPost?postNo=${post.post_no}">
-		                        <td>${post.post_category}</td>
+		                        <td><fmt:formatDate value="${post.post_created_at}" pattern="yyyy-MM-dd" /></td>
 		                        <td class="postTitle">${post.post_title}</td>
 		                        <td class="postNickname">${post.user_nickname}</td>
-		                        <td><fmt:formatDate value="${post.post_created_at}" pattern="yyyy-MM-dd" /></td>
 		                    </tr>
 		                </c:forEach>
 		            </tbody>
@@ -48,10 +46,10 @@
 	
     <!-- 페이지 번호 -->
     <c:choose>
-        <c:when test="${not empty myPostList}">
+        <c:when test="${not empty postList}">
             <div class="pagination">
                 <c:if test="${pagination.currentPage > 1}">
-                    <a href="?page=${pagination.currentPage - 1}">이전</a>
+                    <a href="?category=${category }&page=${pagination.currentPage - 1}">이전</a>
                 </c:if>
 
                 <c:forEach begin="${pagination.startPage}" end="${pagination.endPage}" var="pageNum">
@@ -60,18 +58,17 @@
                             <span class="current">${pageNum}</span>
                         </c:when>
                         <c:otherwise>
-                            <a href="?page=${pageNum}">${pageNum}</a>
+                            <a href="?category=${category }&page=${pageNum}">${pageNum}</a>
                         </c:otherwise>
                     </c:choose>
                 </c:forEach>
 
                 <c:if test="${pagination.currentPage < pagination.totalPages}">
-                    <a href="?page=${pagination.currentPage + 1}">다음</a>
+                    <a href="?category=${category }&page=${pagination.currentPage + 1}">다음</a>
                 </c:if>
             </div>
         </c:when>
-    </c:choose>
-	
+    </c:choose>	
 	
 </body>
 </html>

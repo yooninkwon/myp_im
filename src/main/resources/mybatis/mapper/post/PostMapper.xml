@@ -27,6 +27,7 @@
 		LIMIT #{offset}, #{limit}
 	</select>
 	
+	<!-- 내가 쓴 글 갯수 -->
 	<select id="countMyPostList" resultType="int">
 	    SELECT 
 	    	COUNT(*) 
@@ -35,5 +36,73 @@
 	    WHERE 
 	    	POST_USERCODE = #{userCode}
 	</select>
+	
+	<!-- 카테고리별 글 리스트 불러오기 -->
+	<select id="postList" resultType="com.tech.im.dto.ImPostListDto">
+		SELECT 
+			P.POST_NO, P.POST_TITLE, P.POST_CREATED_AT, U.USER_NICKNAME
+		FROM
+			IM_POST P
+		INNER JOIN 
+			IM_USER U ON P.POST_USERCODE = U.USER_CODE
+		WHERE 
+			P.POST_CATEGORY = #{changeCategory}
+		ORDER BY 
+			P.POST_CREATED_AT DESC
+		LIMIT #{offset}, #{limit}
+	</select>
+	
+	<!-- 카테고리별 글 갯수 -->
+	<select id="countPostList" resultType="int">
+	    SELECT 
+	    	COUNT(*) 
+	    FROM 
+	    	IM_POST
+	    WHERE 
+	    	POST_CATEGORY = #{changeCategory}
+	</select>
+	
+	<!-- 게시글 상세정보 불러오기 -->
+	<select id="detailPost" resultType="com.tech.im.dto.ImDetailPostDto">
+		SELECT 
+			P.POST_NO, P.POST_CATEGORY, P.POST_TITLE, P.POST_CONTENT, P.POST_CREATED_AT, U.USER_NICKNAME
+		FROM
+			IM_POST P
+		INNER JOIN 
+			IM_USER U ON P.POST_USERCODE = U.USER_CODE
+		WHERE 
+			P.POST_NO = #{postNo}
+		ORDER BY 
+			P.POST_CREATED_AT DESC
+	</select>
+	
+	<!-- 게시글에 등록된 유저코드 가져오기 -->
+	<select id="postUserCode" resultType="String">
+		SELECT
+			POST_USERCODE
+		FROM
+			IM_POST
+		WHERE
+			POST_NO = #{postNo}
+	</select>
+	
+	<!-- 게시글 삭제 -->
+	<delete id="deletePost">
+		DELETE FROM
+			IM_POST
+		WHERE
+			POST_NO = #{postNo}
+	</delete>
+	
+	<!-- 게시글 수정 -->
+	<update id="editPostWrite">
+		UPDATE 
+			IM_POST
+		SET
+			POST_TITLE = #{postTitle}, POST_CONTENT = #{postContent}
+		WHERE
+			POST_NO = #{postNo}
+	</update>
+	
 
 </mapper>
