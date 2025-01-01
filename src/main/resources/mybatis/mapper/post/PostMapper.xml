@@ -24,7 +24,16 @@
 			P.POST_USERCODE = #{userCode}
 		ORDER BY 
 			P.POST_CREATED_AT DESC
+		LIMIT #{offset}, #{limit}
 	</select>
 	
+	<select id="countMyPostList" resultType="int">
+	    SELECT 
+	    	COUNT(*) 
+	    FROM 
+	    	IM_POST
+	    WHERE 
+	    	POST_USERCODE = #{userCode}
+	</select>
 
 </mapper>

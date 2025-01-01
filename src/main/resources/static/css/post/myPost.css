@@ -3,7 +3,7 @@
     width: 83%;
     margin-top: 10px;
     margin-right: 10px;
-    padding: 20px;
+    padding:0 20px 20px 20px;
     border-radius: 8px;
     border: 1px solid #ccc;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -60,4 +60,32 @@ tr.clickPostList:hover {
     font-size: 18px;
     color: #888;
     margin-top: 20px;
+}
+
+
+.pagination {
+    
+    text-align: center;
+        width: 83%;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+.pagination a, .pagination .current {
+    display: inline-block;
+    margin: 0 5px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #B0E0E6;
+    border: 1px solid #B0E0E6;
+    border-radius: 5px;
+}
+
+.pagination .current {
+    background-color: #B0E0E6;
+    color: #fff;
+}
+
+.pagination a:hover {
+    background-color: #f1f1f1;
 }
