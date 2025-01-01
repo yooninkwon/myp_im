@@ -13,7 +13,7 @@
 <body>
 	<jsp:include page="../main/header.jsp"/>
 	<div id="writePostBody">
-		<form action="/writePost/save" method="post">
+		<form action="/writePost/save" method="post" id="postForm">
 			<div class="form-group">
 				<label for="category">카테고리</label>
 				<select name="category" id="category">

@@ -15,8 +15,12 @@ public class ImWritePostService {
 	private final ImPostMapper imPostMapper;
 	
 	public String writePostSave(HttpSession session, String category, String title, String content) {
-		//만약 제목 길이가 100 초과면 리턴
-		if(title.length()>100) {
+		//만약 제목 길이가 100 초과거나 0이면 리턴
+		if(title.length() > 100 || title.length() == 0) {
+			return "redirect:/writePost";
+		}
+		//만약 내용의 길이가 0이면 리턴
+		if(content.length() == 0) {
 			return "redirect:/writePost";
 		}
 		//만약 카테고리가 이상한 카테고리면 리턴
