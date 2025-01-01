@@ -28,9 +28,9 @@ public class ImPostController {
 	
 	//내가 쓴 글 보기
 	@GetMapping("/myPost")
-	public String myPost(HttpSession session, Model model) {
+	public String myPost(HttpSession session, Model model, @RequestParam(defaultValue = "1") int page) {
 		
-		imMyPostListService.myPostList(session, model);
+		imMyPostListService.myPostList(session, model, page);
 		
 		return "post/myPost";
 	}
