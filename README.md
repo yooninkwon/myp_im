@@ -9,39 +9,49 @@
 ****언어**** : Java 17, HTML/CSS, JavaScript     
 ****프레임워크**** : Spring Boot      
 ****DB**** : mariaDB 10.3.39    
+****Link**** : <a href="https://yooninkwon.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/I%27m"/>Blog
 
 ---
+
+**<추가 구현 기능>**    
+1.서버 2차 조건 검증 기능 추가
++ 관리자도구 변경 악용 방지를 위한 서버 검증 기능 구현
+
 
 **<구현 기능>**
 
-[회원가입 / 로그인]
-+ 회원가입 시 정보 중복확인 기능 / JPA 
-+ google 이메일 연동 및 인증번호 발송 및 일치여부 확인 기능     
-+ 인증번호 일치 여부 확인 기능 / redis 사용(인증번호 유효시간 5분)     
-+ 회원가입 기능 (비밀번호 암호화) / BCryptPasswordEncoder     
-(+수정내용 : 관리자도구 변경 악용 방지를 위해 서버 조건 검증 기능 추가)     
-+ 아이디,비밀번호 찾기 기능 / JPA     
-(+수정내용 : 관리자도구 변경 악용 방지를 위해 서버 조건 검증 기능 추가)    
-+ 로그인, 로그아웃 기능 / HTTP Session   
+#### [회원가입]
+
+1.회원가입 시 정보(아이디, 닉네임, 이메일) 중복확인 기능
++ JPA exists 메소드 이용
+
+2.google 이메일 연동, 인증번호 발송 및 일치여부 확인 기능
++ Redis를 활용하여 인증번호 유효시간 5분 설정
+  
+3.회원가입 시 비밀번호 암호화 기능 (비밀번호 암호화)   
++ BCryptPasswordEncoder를 이용한 비밀번호 hasing
+  
+4.아이디, 비밀번호 찾기(비밀번호 재성정) 기능
++ JPA save 메소드 이용
    
-[게시글]  
-+ 게시글 작성 기능 / MyBatis, CKeditor
-+ 내가 작성한 게시글 보기 기능 / MyBatis   
-(+수정내용 : 게시글 작성 시 제목, 내용 빈칸일 경우 1차 js에서 확인(alert) 후 2차 서버에서 확인 후 검증 실패 시 게시글 작성 페이지로 redirect)    
-+ 게시글 리스트 페이징 기능 / 이전,10개의 페이지,다음 _ 페이지별 게시물 10개
-+ 게시글 수정 및 삭제 기능 / MyBatis
+#### [게시글]  
 
+1.게시글 작성, 조회, 수정, 삭제 기능
++ MyBatis를 활용한 CRUD 구현
      
-[인증처리]    
-+ 비로그인 시 진입 불가한 페이지 설정 / HandlerInterceptor
+#### [로그인 및 권한 관리]    
 
+1.로그인 및 로그아웃
++ HTTP Session
 
+2.비로그인 사용자의 특정 페이지 접근 제한
++ HandlerInterceptor
+
+ 
 
 
 ---
 
-**<기능 및 개선 내용>**
-> 내용 참고 : https://yooninkwon.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/I%27m
 
  
 
