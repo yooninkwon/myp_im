@@ -11,12 +11,16 @@
 ****DB**** : mariaDB 10.3.39    
 ****Link**** : <a href="https://yooninkwon.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/I%27m"/>Blog
 
+<img src="https://github.com/user-attachments/assets/974992f5-926b-4eb2-b218-0593d119a752" width="450" height="250">
+
 ---
 
-**<추가 구현 기능>**    
+**<기능 수정 및 개선 내용>**    
+
 1.서버 2차 조건 검증 기능 추가
 + 관리자도구 변경 악용 방지를 위한 서버 검증 기능 구현
 
+</br>
 
 **<구현 기능>**
 
