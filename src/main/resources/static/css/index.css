@@ -1,0 +1,61 @@
+/* 메인 컨테이너 스타일 */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Nanum Gothic', sans-serif;
+    color: #4A4A4A;
+    margin-top: 30px;
+}
+
+/* 메인 메시지 스타일 */
+.main-message {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.main-message h1 {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.main-message h1 span {
+    color: #4682B4;
+}
+
+.main-message p {
+    font-size: 1.2em;
+    color: #6F6F6F;
+}
+
+/* 카테고리 박스 스타일 */
+.categories {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.category-box {
+    flex: 1;
+    max-width: 220px; /* 박스 너비 고정 */
+    border: 2px solid #B0E0E6;
+    border-radius: 10px;
+    padding: 15px 10px;
+    background-color: #D4EDF7; /* 기존 #B0E0E6에서 연한 색으로 변경 */
+    text-align: center;
+}
+
+.category-box h2 {
+    font-size: 1.3em;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.category-box p {
+    font-size: 0.9em;
+    color: #333;
+    line-height: 1.4;
+}
