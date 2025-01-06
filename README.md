@@ -27,7 +27,9 @@ Link : <a href="https://yooninkwon.tistory.com/11"/>Blog
 ****언어**** : Java 17, HTML/CSS, JavaScript     
 ****프레임워크**** : Spring Boot      
 ****DB**** : mariaDB 10.3.39    
-****Link**** : <a href="https://yooninkwon.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/I%27m"/>Blog
+****Server**** : AWS EC2    
+****Link**** : <a href="https://yooninkwon.tistory.com/category/%EA%B0%9C%EC%9D%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8/I%27m">Blog</a>       
+****Service**** : <a href="http://www.imoknow.co.kr">www.imoknow.co.kr</a>    
 
 <img src="https://github.com/user-attachments/assets/974992f5-926b-4eb2-b218-0593d119a752" width="450" height="250">
 
